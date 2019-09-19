@@ -7,18 +7,19 @@ class SearchBar extends Component {
 
   handleChange = event => {
     this.setState({ query: event.target.value });
-  }
+    this.props.filterAuthors(this.state.query);
+  };
 
   render() {
     return (
       <div className="form-group col-lg-6 col-12 mx-auto">
         <div className="input-group my-3">
           <input
-                    className="form-control"
-                    type="text"
-                    value={this.state.query}
-                    onChange={this.handleChange}
-                  />
+            className="form-control"
+            type="text"
+            value={this.state.query}
+            onChange={this.handleChange}
+          />
           <div className="input-group-append">
             <span className="input-group-text">
               <FontAwesomeIcon icon={faSearch} />
